@@ -1,0 +1,118 @@
+.section {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(4.5rem, 10vh, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+  background:
+    radial-gradient(ellipse 55% 70% at 15% 40%, var(--gold-glow), transparent 60%),
+    linear-gradient(180deg, var(--mist) 0%, #ece1cd 100%);
+}
+
+.portraitFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-width: 34rem;
+  background: #d8cbb6;
+  box-shadow:
+    0 0 0 1px var(--gold-line),
+    var(--shadow-gold);
+  animation: soft-zoom 3.5s var(--ease-out) both;
+}
+
+.portraitFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.copy {
+  max-width: 32rem;
+  align-self: center;
+  animation: rise 1s var(--ease-out) 0.15s both;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  line-height: 1.1;
+}
+
+.role {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.registration {
+  margin: 0.45rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.formation {
+  margin: 0.85rem 0 0;
+  display: inline-block;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.text {
+  margin: 1.15rem 0 0;
+  color: var(--muted);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: 1.75rem;
+  padding: 0.75rem 1.45rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.button:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .section {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+  }
+}

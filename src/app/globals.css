@@ -1,0 +1,116 @@
+:root {
+  --ink: #2a2420;
+  --ink-soft: #4a433c;
+  --muted: #7a7168;
+  --paper: #f3ede1;
+  --paper-white: #fbf6ec;
+  --mist: #e9e0cd;
+  --line: rgba(138, 110, 68, 0.2);
+  --accent: #ac8850;
+  --accent-soft: #d6be95;
+  --accent-wash: rgba(176, 141, 87, 0.14);
+  --gold-glow: rgba(201, 168, 110, 0.32);
+  --gold-line: rgba(176, 141, 87, 0.34);
+  --surface: #f7f1e4;
+  --shadow-soft: 0 24px 60px rgba(120, 90, 40, 0.1);
+  --shadow-gold: 0 22px 48px -20px rgba(158, 122, 62, 0.32);
+  --shadow-gold-soft: 0 14px 32px -18px rgba(158, 122, 62, 0.24);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --topbar-h: 2rem;
+  --header-h: 4.5rem;
+  --chrome-h: calc(var(--topbar-h) + var(--header-h));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 50% at 100% 0%, var(--gold-glow), transparent 55%),
+    radial-gradient(ellipse 70% 40% at 0% 100%, var(--accent-wash), transparent 50%),
+    var(--paper);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes soft-zoom {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

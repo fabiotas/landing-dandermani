@@ -1,0 +1,52 @@
+services:
+  # Preview em desenvolvimento (hot reload)
+  # Uso: docker compose up web
+  web:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    env_file: .env
+    environment:
+      - WATCHPACK_POLLING=true
+    # Permite alcançar o túnel SSH que roda na máquina host.
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Produção: sem porta publicada, só acessível através do proxy.
+  # Uso: docker compose --profile prod up --build
+  web-prod:
+    profiles: ["prod"]
+    build:
+      context: .
+      target: production
+    expose:
+      - "3000"
+    env_file: .env
+    environment:
+      # Só é seguro porque o nginx sobrescreve X-Forwarded-For.
+      - TRUST_PROXY=true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  proxy:
+    profiles: ["prod"]
+    image: nginx:1.27-alpine
+    depends_on:
+      - web-prod
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/app.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/certs:/etc/letsencrypt:ro
+      - ./nginx/certbot:/var/www/certbot
+    restart: unless-stopped
+
+volumes:
+  node_modules:

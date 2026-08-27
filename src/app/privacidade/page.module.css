@@ -1,0 +1,52 @@
+.page {
+  padding: clamp(2.5rem, 8vh, 5rem) clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.content {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.content h2 {
+  margin: 2.25rem 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.content p {
+  margin: 0 0 0.9rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+.content code {
+  padding: 0.1em 0.35em;
+  background: var(--accent-wash);
+  font-size: 0.86em;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.1;
+}
+
+.updated {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 300;
+}
