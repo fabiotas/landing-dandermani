@@ -169,25 +169,29 @@ futura.
 
 ## Produção
 
-A aplicação roda sem porta publicada, atrás de um nginx que termina o TLS. Emita
-o certificado antes da primeira subida:
+O container publica apenas em `127.0.0.1:3002`, ou seja, não é acessível pela
+internet: todo acesso externo passa pelo nginx **do sistema**, que termina o TLS
+e faz proxy para essa porta local.
+
+Na VPS, com o código em `/opt/landing-dandermani`:
 
 ```bash
-mkdir -p nginx/certs nginx/certbot
-# ajuste SEU_DOMINIO em nginx/app.conf
-docker run --rm -p 80:80 \
-  -v "$PWD/nginx/certs:/etc/letsencrypt" \
-  certbot/certbot certonly --standalone -d seu-dominio.com.br
+cp .env.example .env    # DATABASE_URL apontando para o Postgres da VPS
+docker compose run --rm --build web sh -c "npm ci && npx prisma migrate deploy"
+docker compose --profile prod up -d --build web-prod
 ```
 
-Depois:
+A migração roda pelo alvo de desenvolvimento porque a imagem de produção é
+enxuta e não inclui o CLI do Prisma.
 
-```bash
-docker compose --profile prod up --build   # https://seu-dominio.com.br
-docker compose run --rm web-prod npx prisma migrate deploy
-```
+Para expor no domínio, instale o server block de `nginx/landing.conf` seguindo
+as instruções no próprio arquivo, e emita o certificado com
+`certbot --nginx -d SEU_DOMINIO`.
 
 O `X-Forwarded-For` é sobrescrito pelo nginx (`proxy_set_header X-Forwarded-For
 $remote_addr`), e só por isso o `TRUST_PROXY=true` do perfil de produção é
-seguro. Se você publicar a porta 3000 do `web-prod` diretamente, essa garantia
-se perde e o rate limit por IP volta a ser burlável.
+seguro. Se a porta do container for publicada em `0.0.0.0`, essa garantia se
+perde e o rate limit por IP volta a ser burlável.
+
+Nesta VPS o nginx atende outros sites. Sempre valide com `nginx -t` e aplique com
+`systemctl reload nginx`, nunca `restart`.
