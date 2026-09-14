@@ -4,7 +4,9 @@ import { SITE } from '../content'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+// Constante em vez de variável de ambiente: NEXT_PUBLIC_* é embutida no build,
+// e o .env do compose só existe em tempo de execução.
+const siteUrl = SITE.url
 
 const description =
   'Avaliação estética facial individualizada para suavizar linhas de expressão preservando a naturalidade. Atendimento em Ribeirão Preto.'

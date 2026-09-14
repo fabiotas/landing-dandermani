@@ -15,6 +15,8 @@ export const PROFESSIONAL = {
 
 export const SITE = {
   brand: 'Danti Bezerra',
+  /** URL canônica, usada como base para Open Graph e metadata. */
+  url: 'https://dantibezerraestetica.com.br',
   /** Título principal (h1) da landing. */
   title: 'Em busca da sua melhor versão',
   /** Linha dourada logo abaixo do h1. */

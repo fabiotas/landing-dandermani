@@ -8,7 +8,7 @@ export function About() {
         <div className={styles.portraitFrame}>
           <img
             src="/profissional.png"
-            alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}, em seu ambiente de atendimento`}
+            alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}`}
             width={800}
             height={1000}
           />
