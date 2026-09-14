@@ -17,7 +17,9 @@
   --shadow-gold-soft: 0 14px 32px -18px rgba(158, 122, 62, 0.24);
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display-hero: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', sans-serif;
+  --font-script: 'Great Vibes', cursive;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --topbar-h: 2rem;

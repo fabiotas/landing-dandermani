@@ -1,0 +1,132 @@
+.carousel {
+  position: relative;
+  width: min(100%, 24rem);
+  justify-self: center;
+  animation: rise 1s var(--ease-out) both;
+}
+
+.carousel::before {
+  content: '';
+  position: absolute;
+  inset: 8% -6% -6% 8%;
+  border: 1px solid var(--gold-line);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #1c1815;
+  box-shadow: 0 30px 70px -28px rgba(60, 40, 15, 0.4);
+}
+
+.track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s var(--ease-out);
+  will-change: transform;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  margin: 0;
+  height: 100%;
+  background: #1c1815;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(255, 248, 235, 0.45);
+  background: rgba(28, 24, 21, 0.55);
+  color: #fff8eb;
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.prev:hover,
+.next:hover {
+  background: rgba(28, 24, 21, 0.78);
+  border-color: rgba(255, 248, 235, 0.75);
+}
+
+.prev {
+  left: 0.65rem;
+}
+
+.next {
+  right: 0.65rem;
+}
+
+.caption {
+  position: relative;
+  z-index: 1;
+  margin: 0.85rem 0 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+.dots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.dot,
+.dotActive {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.25s var(--ease-out);
+}
+
+.dot {
+  background: rgba(138, 110, 68, 0.35);
+}
+
+.dotActive {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .carousel {
+    width: min(100%, 22rem);
+  }
+}
