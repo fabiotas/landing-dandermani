@@ -123,12 +123,12 @@ export const HIPRO = {
     {
       question: 'O HIPRO é dolorido?',
       answer:
-        'A sensação varia conforme a região e a sensibilidade de cada pessoa. Durante a avaliação explicamos o que esperar e como o protocolo é conduzido no seu caso.',
+        'A sensação varia conforme a região e a sensibilidade de cada pessoa. Porém a maioria dos pacientes relata pequeno ou nenhum desconforto. Áreas mais doloridas: proeminências ósseas.',
     },
     {
       question: 'Quantas sessões são necessárias?',
       answer:
-        'Depende da indicação individual. O número de sessões só é definido após a avaliação, conforme a região e o objetivo discutidos com a profissional.',
+        'Depende da indicação individual. Porém, exceto em casos de flacidez elevada é considerada a necessidade de mais sessões após reavaliação que ocorre 90 dias após a primeira sessão.',
     },
     {
       question: 'Quem conduz o atendimento?',
