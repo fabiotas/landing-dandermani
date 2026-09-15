@@ -1,9 +1,20 @@
-import { HIPRO, hiproWhatsappUrl } from '../../hipro-content'
+import {
+  HIPRO,
+  hiproWhatsappUrl,
+  type HiproPageContent,
+} from '../../hipro-content'
 import styles from './HiproHero.module.css'
 
-export function HiproHero() {
+type HiproHeroProps = {
+  content?: HiproPageContent
+}
+
+export function HiproHero({ content = HIPRO }: HiproHeroProps) {
+  const [day, month] = content.eventDate.split('/')
+  const whatsapp = () => hiproWhatsappUrl(undefined, content.whatsappMessage)
+
   return (
-    <section id="topo" className={styles.hero} aria-label="Dia do HiPRO">
+    <section id="topo" className={styles.hero} aria-label={content.eventName}>
       <div className={styles.media} aria-hidden="true">
         <img
           className={styles.photo}
@@ -18,23 +29,33 @@ export function HiproHero() {
 
       <div className={styles.content}>
         <p className={styles.date}>
-          <span className={styles.dateDay}>{HIPRO.eventDate.split('/')[0]}</span>
+          <span className={styles.dateDay}>{day}</span>
           <span className={styles.dateSep}>/</span>
-          <span className={styles.dateMonth}>{HIPRO.eventDate.split('/')[1]}</span>
+          <span className={styles.dateMonth}>{month}</span>
         </p>
 
-        <h1 className={styles.title}>
-          <span className={styles.titleLead}>Dia do</span>
-          <span className={styles.titleAccent}>
-            <span className={styles.titleHi}>Hi</span>
-            <span className={styles.titlePro}>PRO</span>
-          </span>
-          <span className={styles.titleLine} aria-hidden="true" />
-        </h1>
+        {content.heroVariant === 'hipro-day' ? (
+          <h1 className={styles.title}>
+            <span className={styles.titleLead}>Dia do</span>
+            <span className={styles.titleAccent}>
+              <span className={styles.titleHi}>Hi</span>
+              <span className={styles.titlePro}>PRO</span>
+            </span>
+            <span className={styles.titleLine} aria-hidden="true" />
+          </h1>
+        ) : (
+          <h1 className={styles.titleNatural}>
+            <span className={styles.titleNaturalMain}>{content.eventName}</span>
+            <span className={styles.titleNaturalLocation}>
+              {content.locationLine}
+            </span>
+            <span className={styles.titleLine} aria-hidden="true" />
+          </h1>
+        )}
 
-        <span className={styles.badge}>{HIPRO.eventBadge}</span>
+        <span className={styles.badge}>{content.eventBadge}</span>
 
-        <p className={styles.tagline}>{HIPRO.tagline}</p>
+        <p className={styles.tagline}>{content.tagline}</p>
 
         <div className={styles.actions}>
           <a className={styles.primary} href="#agendamento">
@@ -47,7 +68,7 @@ export function HiproHero() {
       </div>
 
       <ul className={styles.features}>
-        {HIPRO.heroFeatures.map((feature, index) => (
+        {content.heroFeatures.map((feature, index) => (
           <li key={feature.title} className={styles.feature}>
             <span className={styles.featureIndex}>0{index + 1}</span>
             <strong>{feature.title}</strong>
@@ -56,14 +77,14 @@ export function HiproHero() {
       </ul>
 
       <ul className={styles.sideLabels} aria-hidden="true">
-        {HIPRO.sideLabels.map((label) => (
+        {content.sideLabels.map((label) => (
           <li key={label}>{label}</li>
         ))}
       </ul>
 
       <a
         className={styles.whatsFloat}
-        href={hiproWhatsappUrl()}
+        href={whatsapp()}
         aria-label="Atendimento pelo WhatsApp"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">

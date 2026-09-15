@@ -1,7 +1,11 @@
-import { HIPRO } from '../../hipro-content'
+import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import styles from './HiproPossibilities.module.css'
 
-export function HiproPossibilities() {
+type HiproPossibilitiesProps = {
+  content?: HiproPageContent
+}
+
+export function HiproPossibilities({ content = HIPRO }: HiproPossibilitiesProps) {
   return (
     <section
       id="tratamentos"
@@ -12,14 +16,14 @@ export function HiproPossibilities() {
         <div>
           <p className={styles.eyebrow}>Possibilidades</p>
           <h2 id="hipro-possibilities-title" className={styles.title}>
-            {HIPRO.possibilitiesTitle}
+            {content.possibilitiesTitle}
           </h2>
         </div>
-        <p className={styles.script}>{HIPRO.possibilitiesScript}</p>
+        <p className={styles.script}>{content.possibilitiesScript}</p>
       </div>
 
       <ul className={styles.grid}>
-        {HIPRO.possibilities.map((item, index) => (
+        {content.possibilities.map((item, index) => (
           <li key={item} className={styles.card}>
             <span className={styles.check} aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">

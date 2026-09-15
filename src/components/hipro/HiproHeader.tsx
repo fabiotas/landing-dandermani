@@ -1,14 +1,25 @@
 import { SITE } from '../../content'
-import { HIPRO, hiproWhatsappUrl } from '../../hipro-content'
+import {
+  HIPRO,
+  hiproWhatsappUrl,
+  type HiproPageContent,
+} from '../../hipro-content'
 import { Logo } from '../Logo'
 import styles from './HiproHeader.module.css'
 
-export function HiproHeader() {
+type HiproHeaderProps = {
+  content?: HiproPageContent
+}
+
+export function HiproHeader({ content = HIPRO }: HiproHeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.top}>
-        <p className={styles.location}>{HIPRO.city}</p>
-        <a className={styles.topLink} href={hiproWhatsappUrl()}>
+        <p className={styles.location}>{content.city}</p>
+        <a
+          className={styles.topLink}
+          href={hiproWhatsappUrl(undefined, content.whatsappMessage)}
+        >
           Atendimento pelo WhatsApp
         </a>
       </div>

@@ -1,7 +1,11 @@
-import { HIPRO } from '../../hipro-content'
+import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import styles from './HiproWhat.module.css'
 
-export function HiproWhat() {
+type HiproWhatProps = {
+  content?: HiproPageContent
+}
+
+export function HiproWhat({ content = HIPRO }: HiproWhatProps) {
   return (
     <section id="o-que-e" className={styles.section} aria-labelledby="hipro-what-title">
       <div className={styles.media}>
@@ -16,13 +20,13 @@ export function HiproWhat() {
       <div className={styles.copy}>
         <p className={styles.eyebrow}>Tecnologia</p>
         <h2 id="hipro-what-title" className={styles.title}>
-          {HIPRO.whatTitle}
+          {content.whatTitle}
         </h2>
         <span className={styles.rule} aria-hidden="true" />
-        <p className={styles.lead}>{HIPRO.whatLead}</p>
+        <p className={styles.lead}>{content.whatLead}</p>
 
         <ul className={styles.grid}>
-          {HIPRO.whatFeatures.map((feature, index) => (
+          {content.whatFeatures.map((feature, index) => (
             <li key={feature.title} className={styles.item}>
               <span className={styles.index}>0{index + 1}</span>
               <div>

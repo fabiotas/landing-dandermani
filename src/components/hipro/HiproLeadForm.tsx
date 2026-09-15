@@ -1,11 +1,19 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { HIPRO, hiproWhatsappUrl, type HiproInterest } from '../../hipro-content'
+import {
+  HIPRO,
+  hiproWhatsappUrl,
+  type HiproPageContent,
+} from '../../hipro-content'
 import { useTracking } from '../TrackingProvider'
 import styles from './HiproLeadForm.module.css'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
+
+type HiproLeadFormProps = {
+  content?: HiproPageContent
+}
 
 function formatTelefone(value: string): string {
   const digits = value.replace(/\D/g, '').slice(0, 11)
@@ -17,17 +25,20 @@ function formatTelefone(value: string): string {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
 }
 
-export function HiproLeadForm() {
+export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
   const tracking = useTracking()
   const [nome, setNome] = useState('')
   const [telefone, setTelefone] = useState('')
-  const [interesse, setInteresse] = useState<HiproInterest | ''>('')
+  const [interesse, setInteresse] = useState('')
   const [consentimento, setConsentimento] = useState(false)
   const [empresa, setEmpresa] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
-  const destination = hiproWhatsappUrl(interesse || undefined)
+  const destination = hiproWhatsappUrl(
+    interesse || undefined,
+    content.whatsappMessage,
+  )
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -45,6 +56,7 @@ export function HiproLeadForm() {
           telefone,
           consentimento,
           empresa,
+          experiencia_estetica: interesse || null,
           landing_page: tracking?.landing_page ?? window.location.pathname,
           utm_source: tracking?.utm_source ?? null,
           utm_medium: tracking?.utm_medium ?? null,
@@ -93,7 +105,7 @@ export function HiproLeadForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <h3 className={styles.title}>{HIPRO.formTitle}</h3>
+      <h3 className={styles.title}>{content.formTitle}</h3>
 
       <div className={styles.field}>
         <label className={styles.label} htmlFor="hipro-nome">
@@ -133,9 +145,9 @@ export function HiproLeadForm() {
       </div>
 
       <fieldset className={styles.interests}>
-        <legend className={styles.label}>Interesse</legend>
+        <legend className={styles.questionLabel}>{content.formQuestionLabel}</legend>
         <div className={styles.interestGrid}>
-          {HIPRO.formInterests.map((option) => {
+          {content.formInterests.map((option) => {
             const selected = interesse === option
             return (
               <button
@@ -175,7 +187,8 @@ export function HiproLeadForm() {
           required
         />
         <span>
-          Autorizo o contato pelo WhatsApp sobre o Dia do HiPRO e li a{' '}
+          Autorizo o contato pelo WhatsApp sobre {content.formConsentTopic} e li
+          a{' '}
           <a
             className={styles.link}
             href="/privacidade"

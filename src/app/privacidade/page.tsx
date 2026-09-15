@@ -37,10 +37,12 @@ export default function Privacidade() {
 
         <h2>Quais dados coletamos</h2>
         <p>
-          No formulário de agendamento coletamos apenas <strong>nome</strong> e{' '}
-          <strong>telefone</strong>. Não solicitamos nem armazenamos dados de
-          saúde, histórico clínico, documentos, endereço ou informações de
-          pagamento.
+          No formulário de agendamento coletamos <strong>nome</strong>,{' '}
+          <strong>telefone</strong> e, quando informado, a resposta sobre{' '}
+          <strong>experiência prévia com procedimentos estéticos</strong> (por
+          exemplo, se nunca fez ou se já realiza com alguma frequência). Não
+          solicitamos nem armazenamos histórico clínico detalhado, documentos,
+          endereço ou informações de pagamento.
         </p>
         <p>
           Registramos também a origem da sua visita: os parâmetros de campanha
@@ -52,8 +54,9 @@ export default function Privacidade() {
 
         <h2>Para que usamos</h2>
         <p>
-          Nome e telefone são usados exclusivamente para entrar em contato sobre
-          o seu agendamento e conduzir o atendimento. Os parâmetros de campanha
+          Nome, telefone e a resposta sobre experiência estética são usados
+          exclusivamente para entrar em contato sobre o seu agendamento e
+          conduzir o atendimento com mais contexto. Os parâmetros de campanha
           são usados para atribuição e mensuração, ou seja, para sabermos qual
           anúncio ou canal originou o contato e avaliarmos o resultado da
           divulgação. Eles não são usados para traçar perfil de comportamento
@@ -62,12 +65,13 @@ export default function Privacidade() {
 
         <h2>Base legal e consentimento</h2>
         <p>
-          O tratamento de nome e telefone ocorre com base no seu{' '}
-          <strong>consentimento</strong>, coletado por marcação expressa no
-          formulário e registrado junto ao seu contato como evidência, com data
-          e hora. A mensuração das campanhas se apoia no legítimo interesse.
-          Você pode revogar o consentimento a qualquer momento pelo canal de
-          contato acima, sem prejuízo do atendimento já realizado.
+          O tratamento de nome, telefone e da resposta sobre experiência
+          estética ocorre com base no seu <strong>consentimento</strong>,
+          coletado por marcação expressa no formulário e registrado junto ao
+          seu contato como evidência, com data e hora. A mensuração das
+          campanhas se apoia no legítimo interesse. Você pode revogar o
+          consentimento a qualquer momento pelo canal de contato acima, sem
+          prejuízo do atendimento já realizado.
         </p>
 
         <h2>Com quem compartilhamos</h2>

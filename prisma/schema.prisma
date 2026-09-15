@@ -25,6 +25,9 @@ model Lead {
 
   landingPage String @map("landing_page")
 
+  /// Resposta do questionário de experiência com procedimentos estéticos.
+  experienciaEstetica String? @map("experiencia_estetica")
+
   /// Evidência de consentimento LGPD no momento do envio.
   consentimento Boolean
 

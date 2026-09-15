@@ -6,6 +6,47 @@ export type HiproExamplePhoto = {
   caption?: string
 }
 
+export type HiproPageContent = {
+  slug: string
+  heroVariant: 'hipro-day' | 'natural'
+  eventName: string
+  eventDate: string
+  eventBadge: string
+  tagline: string
+  locationLine: string
+  city: string
+  sideLabels: readonly string[]
+  heroFeatures: readonly { title: string; description: string }[]
+  whatTitle: string
+  whatLead: string
+  whatFeatures: readonly { title: string; description: string }[]
+  possibilitiesTitle: string
+  possibilitiesScript: string
+  possibilities: readonly string[]
+  resultsTitle: string
+  resultsSubtitle: string
+  resultsBody: string
+  resultsDisclaimer: string
+  protocolTitle: string
+  protocolBody: string
+  protocolScript: string
+  expertiseTitle: string
+  expertisePoints: readonly string[]
+  formTitle: string
+  formConsentTopic: string
+  formQuestionLabel: string
+  formInterests: readonly string[]
+  faqTitle: string
+  faq: readonly { question: string; answer: string }[]
+  locationLead: string
+  finalEyebrow: string
+  finalTitle: string
+  finalPoints: readonly string[]
+  whatsappMessage: string
+  metaTitle: string
+  metaDescription: string
+}
+
 /** Fotos de exemplo do carrossel na seção de resultados. */
 export const HIPRO_EXAMPLE_PHOTOS: HiproExamplePhoto[] = [
   {
@@ -35,12 +76,14 @@ export const HIPRO_EXAMPLE_PHOTOS: HiproExamplePhoto[] = [
   },
 ]
 
-export const HIPRO = {
+export const HIPRO: HiproPageContent = {
   slug: '/hipro-ribeirao',
+  heroVariant: 'hipro-day',
   eventName: 'Dia do HiPRO',
   eventDate: '03/10',
   eventBadge: 'Condição especial Semana do Cliente de 13 a 19 de setembro',
   tagline: 'Tecnologia que realça o seu melhor',
+  locationLine: 'em Ribeirão Preto',
   city: 'Ribeirão Preto — São Paulo',
   sideLabels: [
     'Beleza que valoriza você',
@@ -76,12 +119,11 @@ export const HIPRO = {
     },
     {
       title: 'Segurança e critério',
-      description: 'Atendimento conduzido por especialista em estética.',
+      description: 'Atendimento conduzido por enfermeira especialista.',
     },
     {
       title: 'Evolução gradual',
-      description:
-        'Resultados variam conforme o organismo e o protocolo.',
+      description: 'Resultados variam conforme o organismo e o protocolo.',
     },
   ],
   possibilitiesTitle: 'Um tratamento, diferentes possibilidades.',
@@ -113,12 +155,15 @@ export const HIPRO = {
     'Atendimento humanizado',
   ],
   formTitle: 'Quero saber mais sobre o Dia do HiPRO',
+  formConsentTopic: 'o Dia do HiPRO',
+  formQuestionLabel: 'Você já realizou algum procedimento estético?',
   formInterests: [
-    'Rosto',
-    'Papada',
-    'Corpo',
-    'Quero uma avaliação geral',
-  ] as const,
+    'Nunca fiz',
+    'Já fiz algumas vezes',
+    'Faço ocasionalmente',
+    'Faço procedimentos regularmente',
+  ],
+  faqTitle: 'Perguntas sobre o HIPRO',
   faq: [
     {
       question: 'O HIPRO é dolorido?',
@@ -153,13 +198,38 @@ export const HIPRO = {
     'Oie! Gostaria de saber mais sobre o Dia do HiPRO e agendar uma avaliação.',
   metaTitle: `Dia do HiPRO em Ribeirão Preto | ${SITE.brand}`,
   metaDescription:
-    'Conheça o Dia do HiPRO em Ribeirão Preto: ultrassom focado para firmeza e contorno, com avaliação individualizada por especialista em estética.',
-} as const
+    'Conheça o Dia do HiPRO em Ribeirão Preto: ultrassom focado para firmeza e contorno, com avaliação individualizada por enfermeira especialista em estética.',
+}
+
+/** Landing de Ads: frase-chave “rejuvenescimento natural” + Ribeirão Preto. */
+export const REJUVENESCIMENTO: HiproPageContent = {
+  ...HIPRO,
+  slug: '/rejuvenescimento-natural-ribeirao',
+  heroVariant: 'natural',
+  eventName: 'Rejuvenescimento Natural',
+  tagline: 'Firmeza e contorno com tecnologia HIPRO em Ribeirão Preto',
+  locationLine: 'em Ribeirão Preto',
+  formTitle: 'Quero saber mais sobre rejuvenescimento natural',
+  formConsentTopic: 'rejuvenescimento natural',
+  faqTitle: 'Perguntas sobre rejuvenescimento natural',
+  locationLead:
+    'Atendimento em Ribeirão Preto para quem busca rejuvenescimento natural com firmeza, contorno e condução técnica individualizada.',
+  finalTitle: 'Seu momento de cuidar do rejuvenescimento natural.',
+  whatsappMessage:
+    'Oie! Gostaria de saber mais sobre rejuvenescimento natural em Ribeirão Preto e agendar uma avaliação.',
+  metaTitle: `Rejuvenescimento Natural em Ribeirão Preto | ${SITE.brand}`,
+  metaDescription:
+    'Rejuvenescimento natural em Ribeirão Preto com HIPRO (HIFU): firmeza, contorno e estímulo de colágeno, com avaliação individualizada por enfermeira especialista em estética.',
+}
 
 export type HiproInterest = (typeof HIPRO.formInterests)[number]
 
-export function hiproWhatsappUrl(interest?: string) {
-  const base = HIPRO.whatsappMessage
-  const message = interest ? `${base} Interesse: ${interest}.` : base
-  return whatsappUrl(message)
+export function hiproWhatsappUrl(
+  interest?: string,
+  message = HIPRO.whatsappMessage,
+) {
+  const text = interest
+    ? `${message} Experiência estética: ${interest}.`
+    : message
+  return whatsappUrl(text)
 }

@@ -1,4 +1,5 @@
 import { SITE } from '../../content'
+import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import { Footer } from '../Footer'
 import { HiproCta } from './HiproCta'
 import { HiproExpertise } from './HiproExpertise'
@@ -9,18 +10,22 @@ import { HiproPossibilities } from './HiproPossibilities'
 import { HiproResults } from './HiproResults'
 import { HiproWhat } from './HiproWhat'
 
-export function HiproPage() {
+type HiproPageProps = {
+  content?: HiproPageContent
+}
+
+export function HiproPage({ content = HIPRO }: HiproPageProps) {
   return (
     <>
-      <HiproHeader />
+      <HiproHeader content={content} />
       <main>
-        <HiproHero />
-        <HiproWhat />
-        <HiproPossibilities />
-        <HiproResults />
-        <HiproExpertise />
-        <HiproFaq />
-        <HiproCta />
+        <HiproHero content={content} />
+        <HiproWhat content={content} />
+        <HiproPossibilities content={content} />
+        <HiproResults content={content} />
+        <HiproExpertise content={content} />
+        <HiproFaq content={content} />
+        <HiproCta content={content} />
       </main>
       <Footer brand={SITE.brand} city={SITE.city} />
     </>

@@ -67,6 +67,7 @@ export async function POST(request: Request) {
         gbraid: data.gbraid,
         wbraid: data.wbraid,
         landingPage: data.landing_page,
+        experienciaEstetica: data.experiencia_estetica,
         consentimento: data.consentimento,
       },
       select: { id: true },

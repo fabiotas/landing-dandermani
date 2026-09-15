@@ -7,7 +7,7 @@ export const WHATSAPP_NUMBER = '5519981791019'
  */
 export const PROFESSIONAL = {
   name: 'Dra. Dantielen Bezerra',
-  title: 'Especialista em Estética',
+  title: 'Enfermeira Especialista em Estética',
   registration: 'COREN-SP nº 129.231',
   formation: 'Pós-graduação em Estética · Formada pela USP de Ribeirão Preto',
 }
@@ -46,9 +46,9 @@ export const HIGHLIGHTS = [
       'A indicação vem de uma análise facial completa, nunca de um protocolo padronizado.',
   },
   {
-    title: 'Especialista em estética',
+    title: 'Enfermeira especialista',
     description:
-      'Atendimento conduzido por especialista em estética registrada no COREN-SP.',
+      'Atendimento conduzido por enfermeira com especialização em estética registrada no COREN-SP.',
   },
   {
     title: 'Ribeirão Preto',
@@ -132,7 +132,7 @@ export const FAQ = [
   {
     question: 'Quem conduz o atendimento?',
     answer:
-      'O atendimento é conduzido por Especialista em Estética, com especialização registrada no COREN-SP. A identificação completa está na seção sobre a profissional.',
+      'O atendimento é conduzido por Enfermeira Especialista em Estética, com especialização registrada no COREN-SP. A identificação completa está na seção sobre a profissional.',
   },
   {
     question: 'Como funciona a primeira avaliação?',

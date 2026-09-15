@@ -16,6 +16,14 @@ const trackingShape = Object.fromEntries(
   TRACKING_PARAMS.map((param) => [param, trackingValue]),
 ) as Record<TrackingParam, typeof trackingValue>
 
+/** Respostas permitidas do questionário — whitelist no servidor. */
+export const EXPERIENCIA_ESTETICA_OPTIONS = [
+  'Nunca fiz',
+  'Já fiz algumas vezes',
+  'Faço ocasionalmente',
+  'Faço procedimentos regularmente',
+] as const
+
 /**
  * Aceita apenas os campos abaixo. `strictObject` rejeita qualquer chave extra,
  * impedindo que o cliente tente gravar id ou converted_at.
@@ -27,7 +35,7 @@ export const leadSchema = z.strictObject({
     .min(2, 'Informe seu nome')
     .max(120, 'Nome muito longo')
     .transform((value) => value.replace(/\s+/g, ' '))
-    .refine((value) => !/https?:\/\/|www\.|<[^>]/i.test(value), 'Nome inválido'),
+    .refine((value) => !/https?:\/\/|www\.|<[^>]+>/i.test(value), 'Nome inválido'),
   telefone: z
     .string()
     .trim()
@@ -43,6 +51,12 @@ export const leadSchema = z.strictObject({
     .max(MAX_VALUE_LENGTH)
     .regex(/^\/[A-Za-z0-9\-_/]*$/, 'Origem inválida')
     .default('/'),
+  experiencia_estetica: z
+    .enum(EXPERIENCIA_ESTETICA_OPTIONS, {
+      message: 'Selecione uma opção válida',
+    })
+    .nullish()
+    .transform((value) => value ?? null),
   consentimento: z
     .boolean()
     .refine(
