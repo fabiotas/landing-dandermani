@@ -51,6 +51,11 @@ export default function Privacidade() {
           <code>utm_content</code>, <code>gclid</code>, <code>gbraid</code> e{' '}
           <code>wbraid</code>), a página de entrada e a data e hora do envio.
         </p>
+        <p>
+          Se você aceitar cookies de analytics, coletamos dados de uso da página
+          (páginas vistas, cliques e interações) via Microsoft Clarity, sem
+          incluir o conteúdo digitado nos formulários.
+        </p>
 
         <h2>Para que usamos</h2>
         <p>
@@ -60,7 +65,9 @@ export default function Privacidade() {
           são usados para atribuição e mensuração, ou seja, para sabermos qual
           anúncio ou canal originou o contato e avaliarmos o resultado da
           divulgação. Eles não são usados para traçar perfil de comportamento
-          nem para identificar você individualmente.
+          nem para identificar você individualmente. Os dados do Clarity servem
+          só para melhorar a experiência da página (por exemplo, entender onde
+          a navegação trava).
         </p>
 
         <h2>Base legal e consentimento</h2>
@@ -69,24 +76,49 @@ export default function Privacidade() {
           estética ocorre com base no seu <strong>consentimento</strong>,
           coletado por marcação expressa no formulário e registrado junto ao
           seu contato como evidência, com data e hora. A mensuração das
-          campanhas se apoia no legítimo interesse. Você pode revogar o
-          consentimento a qualquer momento pelo canal de contato acima, sem
-          prejuízo do atendimento já realizado.
+          campanhas se apoia no legítimo interesse. O uso do Microsoft Clarity
+          depende de consentimento separado no aviso de cookies. Você pode
+          revogar o consentimento a qualquer momento pelo canal de contato
+          acima (dados do formulário) ou limpando a preferência de cookies no
+          navegador, sem prejuízo do atendimento já realizado.
         </p>
 
         <h2>Com quem compartilhamos</h2>
         <p>
           Não vendemos nem cedemos seus dados. O contato acontece pelo WhatsApp,
           então a conversa passa a ser regida também pela política de
-          privacidade daquele serviço. Os registros ficam armazenados em
-          servidor próprio, com acesso restrito.
+          privacidade daquele serviço. Os registros de leads ficam armazenados
+          em servidor próprio, com acesso restrito. Se você aceitar cookies de
+          analytics, dados de navegação (sem o conteúdo digitado nos
+          formulários) são processados pela Microsoft Clarity, conforme a
+          política de privacidade da Microsoft.
+        </p>
+
+        <h2>Cookies e analytics</h2>
+        <p>
+          Com o seu consentimento, usamos o Microsoft Clarity para medir uso da
+          página (mapas de calor e gravações de sessão). O script só é carregado
+          depois que você aceita o aviso de cookies. Recusar não impede o uso do
+          site nem o envio do formulário de agendamento.
+        </p>
+        <p>
+          Os campos dos formulários (nome, telefone e demais respostas) são
+          mascarados nas gravações: o Clarity não registra o que você digita
+          nesses campos. Nome e telefone só são armazenados no nosso servidor
+          quando você envia o formulário com consentimento expresso.
+        </p>
+        <p>
+          A escolha fica salva no navegador (<code>localStorage</code>). Para
+          mudar depois, limpe os dados do site nas configurações do navegador e
+          recarregue a página — o aviso reaparece.
         </p>
 
         <h2>Por quanto tempo guardamos</h2>
         <p>
-          Mantemos os registros por {LEGAL.retention} a partir do contato, salvo
-          se você solicitar a exclusão antes desse prazo ou se houver obrigação
-          legal de retenção.
+          Mantemos os registros de contato por {LEGAL.retention} a partir do
+          envio, salvo se você solicitar a exclusão antes desse prazo ou se
+          houver obrigação legal de retenção. Dados de analytics no Clarity
+          seguem o período de retenção daquele serviço.
         </p>
 
         <h2>Armazenamento no seu navegador</h2>
@@ -94,7 +126,8 @@ export default function Privacidade() {
           Guardamos os parâmetros de campanha na sessão do navegador
           (<code>sessionStorage</code>) para que a origem do seu acesso não se
           perca enquanto você navega pela página. Esse dado é apagado ao fechar
-          a aba e não contém informação pessoal.
+          a aba e não contém informação pessoal. A preferência de cookies de
+          analytics fica em <code>localStorage</code>, como descrito acima.
         </p>
 
         <h2>Seus direitos</h2>

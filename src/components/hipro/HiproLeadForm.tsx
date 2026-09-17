@@ -104,7 +104,11 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+      data-clarity-mask="true"
+    >
       <h3 className={styles.title}>{content.formTitle}</h3>
 
       <div className={styles.field}>
@@ -123,6 +127,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
           required
           minLength={2}
           maxLength={120}
+          data-clarity-mask="true"
         />
       </div>
 
@@ -141,6 +146,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
           value={telefone}
           onChange={(event) => setTelefone(formatTelefone(event.target.value))}
           required
+          data-clarity-mask="true"
         />
       </div>
 
@@ -174,6 +180,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
           autoComplete="off"
           value={empresa}
           onChange={(event) => setEmpresa(event.target.value)}
+          data-clarity-mask="true"
         />
       </div>
 

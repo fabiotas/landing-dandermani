@@ -157,7 +157,7 @@ export const FAQ = [
   {
     question: 'Como meus dados são utilizados?',
     answer:
-      'Nome e telefone servem apenas para o contato sobre o agendamento. Os detalhes estão na política de privacidade, disponível no rodapé.',
+      'Nome e telefone servem apenas para o contato sobre o agendamento. Analytics (Microsoft Clarity) só roda se você aceitar cookies e não grava o que é digitado nos formulários. Os detalhes estão na política de privacidade, disponível no rodapé.',
   },
 ] as const
 
@@ -170,7 +170,7 @@ export const LEGAL = {
   controller: PROFESSIONAL.name,
   email: 'elendanti@hotmail.com',
   retention: '24 meses',
-  updatedAt: '26 de agosto de 2026',
+  updatedAt: '16 de setembro de 2026',
 }
 
 export function whatsappUrl(message = SITE.whatsappMessage) {

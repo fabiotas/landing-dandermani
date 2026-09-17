@@ -97,7 +97,11 @@ export function LeadForm() {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={styles.form}
+      onSubmit={handleSubmit}
+      data-clarity-mask="true"
+    >
       <div className={styles.field}>
         <label className={styles.label} htmlFor="lead-nome">
           Nome
@@ -114,6 +118,7 @@ export function LeadForm() {
           required
           minLength={2}
           maxLength={120}
+          data-clarity-mask="true"
         />
       </div>
 
@@ -132,6 +137,7 @@ export function LeadForm() {
           value={telefone}
           onChange={(event) => setTelefone(formatTelefone(event.target.value))}
           required
+          data-clarity-mask="true"
         />
       </div>
 
@@ -146,6 +152,7 @@ export function LeadForm() {
           autoComplete="off"
           value={empresa}
           onChange={(event) => setEmpresa(event.target.value)}
+          data-clarity-mask="true"
         />
       </div>
 
