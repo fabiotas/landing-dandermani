@@ -1,6 +1,8 @@
 /** WhatsApp com DDI + DDD, apenas dígitos. */
 export const WHATSAPP_NUMBER = '5519981791019'
 
+export const INSTAGRAM_URL = 'https://www.instagram.com/dradantibezerra/'
+
 /**
  * Identificação profissional. Fica centralizada aqui para não haver título nem
  * registro escritos direto nos componentes.
