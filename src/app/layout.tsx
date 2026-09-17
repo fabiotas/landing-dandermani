@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Script from 'next/script'
 import { SITE } from '../content'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
+
+const CLARITY_PROJECT_ID = 'yjhibms39o'
 
 // Constante em vez de variável de ambiente: NEXT_PUBLIC_* é embutida no build,
 // e o .env do compose só existe em tempo de execução.
@@ -41,6 +44,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
           `lead_submitted` é disparado em src/components/LeadForm.tsx,
           depois da confirmação do backend.
         */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
+          `}
+        </Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
