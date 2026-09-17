@@ -10,6 +10,8 @@ export type HiproPageContent = {
   slug: string
   heroVariant: 'hipro-day' | 'natural'
   eventName: string
+  /** Segunda linha do H1 na variante natural (ex.: efeito lifting). */
+  eventSubtitle?: string
   eventDate: string
   eventBadge: string
   tagline: string
@@ -201,14 +203,16 @@ export const HIPRO: HiproPageContent = {
     'Conheça o Dia do HiPRO em Ribeirão Preto: ultrassom focado para firmeza e contorno, com avaliação individualizada por enfermeira especialista em estética.',
 }
 
-/** Landing de Ads: frase-chave “rejuvenescimento natural” + Ribeirão Preto. */
+/** Landing de Ads: frase-chave “rejuvenescimento” + Ribeirão Preto. */
 export const REJUVENESCIMENTO: HiproPageContent = {
   ...HIPRO,
   slug: '/rejuvenescimento-natural-ribeirao',
   heroVariant: 'natural',
-  eventName: 'Rejuvenescimento Natural',
-  tagline: 'Firmeza e contorno com tecnologia HIPRO em Ribeirão Preto',
-  locationLine: 'em Ribeirão Preto',
+  eventName: 'Rejuvenescimento',
+  eventSubtitle: 'Efeito lifting sem cirurgia',
+  eventBadge: '',
+  tagline: 'A tecnologia que ganhou destaque entre os famosos',
+  locationLine: 'Agora disponível em Ribeirão Preto',
   formTitle: 'Quero saber mais sobre rejuvenescimento natural',
   formConsentTopic: 'rejuvenescimento natural',
   faqTitle: 'Perguntas sobre rejuvenescimento natural',
@@ -219,7 +223,7 @@ export const REJUVENESCIMENTO: HiproPageContent = {
     'Oie! Gostaria de saber mais sobre rejuvenescimento natural em Ribeirão Preto e agendar uma avaliação.',
   metaTitle: `Rejuvenescimento Natural em Ribeirão Preto | ${SITE.brand}`,
   metaDescription:
-    'Rejuvenescimento natural em Ribeirão Preto com HIPRO (HIFU): firmeza, contorno e estímulo de colágeno, com avaliação individualizada por enfermeira especialista em estética.',
+    'Rejuvenescimento natural em Ribeirão Preto com HIPRO (HIFU): efeito lifting sem cirurgia, firmeza e contorno, com avaliação individualizada por enfermeira especialista em estética.',
 }
 
 export type HiproInterest = (typeof HIPRO.formInterests)[number]

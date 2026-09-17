@@ -47,16 +47,32 @@ export function HiproHero({ content = HIPRO }: HiproHeroProps) {
         ) : (
           <h1 className={styles.titleNatural}>
             <span className={styles.titleNaturalMain}>{content.eventName}</span>
-            <span className={styles.titleNaturalLocation}>
-              {content.locationLine}
-            </span>
+            {content.eventSubtitle ? (
+              <span className={styles.titleNaturalSub}>
+                {content.eventSubtitle}
+              </span>
+            ) : null}
             <span className={styles.titleLine} aria-hidden="true" />
           </h1>
         )}
 
-        <span className={styles.badge}>{content.eventBadge}</span>
+        {content.eventBadge ? (
+          <span className={styles.badge}>{content.eventBadge}</span>
+        ) : null}
 
-        <p className={styles.tagline}>{content.tagline}</p>
+        <p
+          className={
+            content.heroVariant === 'natural'
+              ? styles.taglineStrong
+              : styles.tagline
+          }
+        >
+          {content.tagline}
+        </p>
+
+        {content.heroVariant === 'natural' ? (
+          <p className={styles.titleNaturalLocation}>{content.locationLine}</p>
+        ) : null}
 
         <div className={styles.actions}>
           <a className={styles.primary} href="#agendamento">
