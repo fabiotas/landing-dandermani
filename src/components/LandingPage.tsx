@@ -3,10 +3,13 @@ import { Hero } from './Hero'
 import { Highlights } from './Highlights'
 import { Process } from './Process'
 import { Treatments } from './Treatments'
+import { Results } from './Results'
 import { About } from './About'
 import { Faq } from './Faq'
 import { Cta } from './Cta'
+import { Location } from './Location'
 import { Footer } from './Footer'
+import { SocialFloats } from './SocialFloats'
 import { SITE, type Treatment } from '../content'
 
 type LandingPageProps = {
@@ -20,14 +23,17 @@ export function LandingPage({ treatment }: LandingPageProps) {
       <Header />
       <main>
         <Hero supporting={treatment?.supporting} />
+        <Results />
         <Highlights />
         <Process />
         <Treatments />
         <About />
         <Faq />
         <Cta />
+        <Location />
       </main>
       <Footer brand={SITE.brand} city={SITE.city} />
+      <SocialFloats />
     </>
   )
 }

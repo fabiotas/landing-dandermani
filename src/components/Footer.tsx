@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PROFESSIONAL } from '../content'
+import { PROFESSIONAL, SITE } from '../content'
 import { Logo } from './Logo'
 import styles from './Footer.module.css'
 
@@ -19,6 +19,15 @@ export function Footer({ brand, city }: FooterProps) {
         {PROFESSIONAL.name} · {PROFESSIONAL.title} ·{' '}
         {PROFESSIONAL.registration}
       </p>
+
+      <a
+        className={styles.address}
+        href={SITE.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {SITE.address}
+      </a>
 
       <p className={styles.meta}>
         © {year} {brand} · {city}

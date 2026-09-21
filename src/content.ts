@@ -23,6 +23,13 @@ export const SITE = {
   /** Linha dourada logo abaixo do h1. */
   tagline: 'Estética Avançada',
   city: 'Ribeirão Preto — São Paulo',
+  /** Endereço comercial de atendimento (não residencial). */
+  address:
+    'Metropolitan Business Center - Av. Antônio Diederichsen, 400 - Jardim America, Ribeirão Preto - SP, 14020-240',
+  mapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=Metropolitan+Business+Center+-+Av.+Ant%C3%B4nio+Diederichsen%2C+400+-+Jardim+America%2C+Ribeir%C3%A3o+Preto+-+SP%2C+14020-240',
+  mapsEmbedUrl:
+    'https://maps.google.com/maps?q=Metropolitan+Business+Center+-+Av.+Ant%C3%B4nio+Diederichsen%2C+400+-+Jardim+America%2C+Ribeir%C3%A3o+Preto+-+SP%2C+14020-240&z=16&output=embed',
   /** Frase da campanha. Usada no <title> e no Open Graph, não no Hero. */
   headline: 'Tratamento para Linhas de Expressão',
   supporting:
@@ -163,6 +170,46 @@ export const FAQ = [
   },
 ] as const
 
+/** Antes e depois na página principal (sem nome de medicamento). */
+export type ExamplePhoto = {
+  src: string
+  alt: string
+  caption?: string
+}
+
+export const RESULT_PHOTOS: readonly ExamplePhoto[] = [
+  {
+    src: '/resultado-linhas-expressao.jpg',
+    alt: 'Antes e depois: suavização de linhas de expressão no rosto',
+    caption: 'Linhas de expressão — aspecto mais suave e descansado',
+  },
+  {
+    src: '/resultado-perfil-1.jpg',
+    alt: 'Antes e depois em perfil: rinomodelação e realce labial',
+    caption: 'Rinomodelação e realce labial — harmonia do perfil',
+  },
+  {
+    src: '/resultado-perfil-2.jpg',
+    alt: 'Antes e depois em perfil: nariz e lábios com definição',
+    caption: 'Perfil — nariz e lábios com definição natural',
+  },
+  {
+    src: '/resultado-labial.jpg',
+    alt: 'Resultado de preenchimento labial com contorno definido',
+    caption: 'Preenchimento labial — contorno e volume',
+  },
+  {
+    src: '/resultado-fox-eyes.jpg',
+    alt: 'Antes e depois: elevação do olhar com técnica Fox Eyes',
+    caption: 'Elevação do olhar (Fox Eyes)',
+  },
+  {
+    src: '/resultado-perfil-labial.jpg',
+    alt: 'Antes e depois em perfil: harmonização de nariz e lábios',
+    caption: 'Harmonização de perfil — nariz e lábios',
+  },
+]
+
 /**
  * Dados exigidos pela LGPD na política de privacidade.
  * `email` é o canal para solicitações de titulares. Não incluir CPF nem endereço
@@ -172,7 +219,7 @@ export const LEGAL = {
   controller: PROFESSIONAL.name,
   email: 'elendanti@hotmail.com',
   retention: '24 meses',
-  updatedAt: '16 de setembro de 2026',
+  updatedAt: '21 de setembro de 2026',
 }
 
 export function whatsappUrl(message = SITE.whatsappMessage) {

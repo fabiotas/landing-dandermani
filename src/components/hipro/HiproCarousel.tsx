@@ -1,11 +1,16 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { HiproExamplePhoto } from '../../hipro-content'
 import styles from './HiproCarousel.module.css'
 
+type CarouselPhoto = {
+  src: string
+  alt: string
+  caption?: string
+}
+
 type HiproCarouselProps = {
-  photos: readonly HiproExamplePhoto[]
+  photos: readonly CarouselPhoto[]
 }
 
 export function HiproCarousel({ photos }: HiproCarouselProps) {

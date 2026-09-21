@@ -32,6 +32,24 @@
   text-align: center;
 }
 
+.address {
+  max-width: 36ch;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--gold-line);
+  transition: color 0.25s ease;
+}
+
+.address:hover {
+  color: var(--accent);
+}
+
 .legal {
   color: var(--accent);
   font-size: 0.78rem;

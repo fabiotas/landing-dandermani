@@ -8,7 +8,7 @@ import {
   type CookieConsentChoice,
 } from '../lib/cookie-consent'
 
-const CLARITY_PROJECT_ID = 'yjhibms39o'
+const CLARITY_PROJECT_ID = 'ylz8ica5ii'
 
 /**
  * Carrega o Microsoft Clarity somente após consentimento de analytics.

@@ -1,6 +1,7 @@
 import { SITE } from '../../content'
 import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import { Footer } from '../Footer'
+import { Location } from '../Location'
 import { HiproCta } from './HiproCta'
 import { HiproExpertise } from './HiproExpertise'
 import { HiproFaq } from './HiproFaq'
@@ -26,6 +27,7 @@ export function HiproPage({ content = HIPRO }: HiproPageProps) {
         <HiproExpertise content={content} />
         <HiproFaq content={content} />
         <HiproCta content={content} />
+        <Location />
       </main>
       <Footer brand={SITE.brand} city={SITE.city} />
     </>

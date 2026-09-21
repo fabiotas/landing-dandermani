@@ -27,6 +27,11 @@ export default function Privacidade() {
           {PROFESSIONAL.title}, {PROFESSIONAL.registration}, com atendimento em{' '}
           {SITE.city}.
         </p>
+        <p>
+          O endereço comercial de atendimento publicado no site é{' '}
+          {SITE.address}. Trata-se de dado de estabelecimento para localização
+          do atendimento, não de endereço residencial.
+        </p>
 
         <h2>Canal de contato</h2>
         <p>

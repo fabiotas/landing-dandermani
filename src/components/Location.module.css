@@ -1,0 +1,126 @@
+.section {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(3.25rem, 8vh, 5.5rem) 0 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 80% 0%, var(--accent-wash), transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--surface) 100%);
+}
+
+.copy {
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  max-width: 40rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.title {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
+}
+
+.city {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.address {
+  margin: 0.65rem 0 0;
+  max-width: 28ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  transition: color 0.25s ease;
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.mapFrame {
+  position: relative;
+  height: clamp(16rem, 42vw, 24rem);
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 1px solid var(--line);
+}
+
+.map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.22) contrast(1.02) saturate(0.88);
+}
+
+.mapVeil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, var(--surface) 0%, transparent 18%),
+    linear-gradient(to top, rgba(247, 241, 228, 0.35) 0%, transparent 22%),
+    linear-gradient(
+      90deg,
+      rgba(247, 241, 228, 0.2) 0%,
+      transparent 12%,
+      transparent 88%,
+      rgba(247, 241, 228, 0.18) 100%
+    );
+}
+
+@media (min-width: 900px) {
+  .section {
+    grid-template-columns: minmax(16rem, 22rem) 1fr;
+    align-items: stretch;
+    gap: 0;
+    padding-top: clamp(4rem, 9vh, 6rem);
+  }
+
+  .copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vh, 3rem);
+  }
+
+  .mapFrame {
+    height: auto;
+    min-height: 22rem;
+    border-top: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .mapVeil {
+    background:
+      linear-gradient(to right, var(--surface) 0%, transparent 14%),
+      linear-gradient(to top, rgba(247, 241, 228, 0.28) 0%, transparent 20%);
+  }
+}

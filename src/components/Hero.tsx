@@ -1,5 +1,6 @@
 import { SITE } from '../content'
 import { Logo } from './Logo'
+import { HiproPromoSeal } from './HiproPromoSeal'
 import styles from './Hero.module.css'
 
 type HeroProps = {
@@ -17,6 +18,8 @@ export function Hero({ supporting = SITE.supporting }: HeroProps) {
 
       <div className={styles.veil} aria-hidden="true" />
       <div className={styles.grain} aria-hidden="true" />
+
+      <HiproPromoSeal />
 
       <div className={styles.content}>
         <Logo className={styles.logo} />
