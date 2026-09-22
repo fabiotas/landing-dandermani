@@ -66,30 +66,6 @@ export const HIGHLIGHTS = [
   },
 ] as const
 
-/** Como funciona a avaliação, do primeiro contato ao acompanhamento. */
-export const PROCESS = [
-  {
-    title: 'Contato',
-    description:
-      'Você deixa nome e WhatsApp e combinamos um horário para conversar sobre o que te incomoda.',
-  },
-  {
-    title: 'Avaliação facial',
-    description:
-      'Análise dos traços, da mímica e das suas queixas, com espaço para todas as dúvidas.',
-  },
-  {
-    title: 'Plano individual',
-    description:
-      'Apresentação das condutas indicadas para o seu caso, incluindo o que cada uma não alcança.',
-  },
-  {
-    title: 'Acompanhamento',
-    description:
-      'Orientações de cuidado e retorno para acompanhar a evolução ao longo do tempo.',
-  },
-] as const
-
 /**
  * Regiões e queixas que podem ser avaliadas.
  * O slug é a URL de campanha e o valor gravado em `landing_page` no lead;
@@ -225,3 +201,32 @@ export const LEGAL = {
 export function whatsappUrl(message = SITE.whatsappMessage) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
+
+/** Encaminha pelo /obrigado para disparar conversão antes do chat. */
+export function whatsappViaObrigado(message = SITE.whatsappMessage) {
+  return obrigadoUrl(whatsappUrl(message))
+}
+
+export function obrigadoUrl(whatsappDestination: string) {
+  return `/obrigado?to=${encodeURIComponent(whatsappDestination)}`
+}
+
+/**
+ * Aceita só wa.me / api.whatsapp.com do número do site — evita open redirect.
+ */
+export function parseSafeWhatsappRedirect(to: string | null | undefined): string | null {
+  if (!to) return null
+  try {
+    const url = new URL(to)
+    if (url.protocol !== 'https:') return null
+    const host = url.hostname.toLowerCase()
+    if (host !== 'wa.me' && host !== 'api.whatsapp.com') return null
+    const pathNumber = url.pathname.replace(/^\//, '').split('/')[0] ?? ''
+    const digits = pathNumber.replace(/\D/g, '')
+    if (digits !== WHATSAPP_NUMBER) return null
+    return url.toString()
+  } catch {
+    return null
+  }
+}
+

@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { SITE } from '../content'
 import { ClarityAnalytics } from '../components/ClarityAnalytics'
 import { CookieConsent } from '../components/CookieConsent'
+import { GoogleAnalytics } from '../components/GoogleAnalytics'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
 
@@ -37,11 +38,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pt-BR">
       <body>
         {/*
-          Ponto de inserção do Google Tag Manager / gtag.js.
-          Adicionar aqui, com next/script e strategy="afterInteractive",
-          quando o ID do container existir. O evento de conversão
-          `lead_submitted` é disparado em src/components/LeadForm.tsx,
-          depois da confirmação do backend.
+          Google Ads / gtag: carregado em GoogleAnalytics após consentimento,
+          quando GOOGLE_TAG_ID estiver preenchido em src/lib/google-tag.ts.
+          Conversão lead_submitted dispara em /obrigado.
           O Microsoft Clarity só carrega após consentimento (CookieConsent).
         */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,6 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <TrackingProvider>{children}</TrackingProvider>
         <ClarityAnalytics />
+        <GoogleAnalytics />
         <CookieConsent />
       </body>
     </html>

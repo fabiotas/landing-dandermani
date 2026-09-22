@@ -1,6 +1,6 @@
 import {
   HIPRO,
-  hiproWhatsappUrl,
+  hiproWhatsappViaObrigado,
   type HiproPageContent,
 } from '../../hipro-content'
 import styles from './HiproFaq.module.css'
@@ -33,7 +33,7 @@ export function HiproFaq({ content = HIPRO }: HiproFaqProps) {
         <p className={styles.lead}>{content.locationLead}</p>
         <a
           className={styles.button}
-          href={hiproWhatsappUrl(undefined, content.whatsappMessage)}
+          href={hiproWhatsappViaObrigado(undefined, content.whatsappMessage)}
         >
           Agendar pelo WhatsApp
         </a>

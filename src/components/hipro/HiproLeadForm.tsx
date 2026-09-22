@@ -6,6 +6,7 @@ import {
   hiproWhatsappUrl,
   type HiproPageContent,
 } from '../../hipro-content'
+import { obrigadoUrl } from '../../content'
 import { useTracking } from '../TrackingProvider'
 import styles from './HiproLeadForm.module.css'
 
@@ -39,6 +40,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
     interesse || undefined,
     content.whatsappMessage,
   )
+  const viaObrigado = obrigadoUrl(destination)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -81,7 +83,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
       }
 
       setStatus('success')
-      window.location.href = destination
+      window.location.href = viaObrigado
     } catch {
       setErrorMessage(
         'Falha de conexão. Verifique sua internet e tente novamente.',
@@ -96,7 +98,7 @@ export function HiproLeadForm({ content = HIPRO }: HiproLeadFormProps) {
         <p className={styles.successText}>
           Recebemos seu contato. Abrindo o WhatsApp…
         </p>
-        <a className={styles.submit} href={destination}>
+        <a className={styles.submit} href={viaObrigado}>
           Continuar no WhatsApp
         </a>
       </div>

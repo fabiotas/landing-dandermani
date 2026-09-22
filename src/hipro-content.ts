@@ -1,4 +1,4 @@
-import { PROFESSIONAL, SITE, whatsappUrl } from './content'
+import { PROFESSIONAL, SITE, obrigadoUrl, whatsappUrl } from './content'
 
 export type HiproExamplePhoto = {
   src: string
@@ -237,3 +237,12 @@ export function hiproWhatsappUrl(
     : message
   return whatsappUrl(text)
 }
+
+/** WhatsApp via /obrigado (conversão Google) nas landings HIPRO. */
+export function hiproWhatsappViaObrigado(
+  interest?: string,
+  message = HIPRO.whatsappMessage,
+) {
+  return obrigadoUrl(hiproWhatsappUrl(interest, message))
+}
+

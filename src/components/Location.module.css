@@ -28,8 +28,19 @@
   line-height: 1.1;
 }
 
-.city {
+.lead {
   margin: 1rem 0 0;
+  max-width: 36ch;
+  color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.city {
+  margin: 1.25rem 0 0;
   color: var(--muted);
   font-size: 0.82rem;
   font-weight: 400;

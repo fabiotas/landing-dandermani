@@ -1,7 +1,7 @@
 import { SITE } from '../../content'
 import {
   HIPRO,
-  hiproWhatsappUrl,
+  hiproWhatsappViaObrigado,
   type HiproPageContent,
 } from '../../hipro-content'
 import { Logo } from '../Logo'
@@ -18,7 +18,7 @@ export function HiproHeader({ content = HIPRO }: HiproHeaderProps) {
         <p className={styles.location}>{content.city}</p>
         <a
           className={styles.topLink}
-          href={hiproWhatsappUrl(undefined, content.whatsappMessage)}
+          href={hiproWhatsappViaObrigado(undefined, content.whatsappMessage)}
         >
           Atendimento pelo WhatsApp
         </a>

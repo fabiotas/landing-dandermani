@@ -1,4 +1,4 @@
-import { INSTAGRAM_URL, whatsappUrl } from '../content'
+import { INSTAGRAM_URL, whatsappViaObrigado } from '../content'
 import styles from './SocialFloats.module.css'
 
 type SocialFloatsProps = {
@@ -25,7 +25,7 @@ export function SocialFloats({ whatsappMessage }: SocialFloatsProps) {
       </a>
       <a
         className={styles.whatsFloat}
-        href={whatsappUrl(whatsappMessage)}
+        href={whatsappViaObrigado(whatsappMessage)}
         aria-label="Atendimento pelo WhatsApp"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">

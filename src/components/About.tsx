@@ -7,7 +7,7 @@ export function About() {
       <div className={styles.portrait}>
         <div className={styles.portraitFrame}>
           <img
-            src="/profissional.png"
+            src="/sobre-profissional.jpg"
             alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}`}
             width={800}
             height={1000}

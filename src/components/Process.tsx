@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react'
-import { PROCESS } from '../content'
 import styles from './Process.module.css'
 
 export function Process() {
@@ -10,32 +8,19 @@ export function Process() {
       aria-labelledby="avaliacao-title"
     >
       <div className={styles.intro}>
-        <p className={styles.eyebrow}>Avaliação</p>
+        <p className={styles.eyebrow}>Primeiro encontro</p>
         <h2 id="avaliacao-title" className={styles.title}>
-          Como funciona a avaliação
+          Agende a primeira avaliação de forma Online gratuita
         </h2>
         <p className={styles.lead}>
-          Um caminho simples, sem compromisso de fechar tratamento, para
-          entender o que é indicado no seu caso.
+          Um momento para ouvir suas queixas, analisar o seu rosto e indicar o
+          que faz sentido — sem compromisso de fechar tratamento.
         </p>
+        <a className={styles.cta} href="#agendamento">
+          Quero agendar
+        </a>
         <span className={styles.rule} aria-hidden="true" />
       </div>
-
-      <ol className={styles.steps}>
-        {PROCESS.map((step, index) => (
-          <li
-            key={step.title}
-            className={styles.step}
-            style={{ '--i': index } as CSSProperties}
-          >
-            <span className={styles.index} aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <h3 className={styles.stepTitle}>{step.title}</h3>
-            <p className={styles.stepText}>{step.description}</p>
-          </li>
-        ))}
-      </ol>
     </section>
   )
 }

@@ -26,11 +26,11 @@ export function LandingPage({ treatment }: LandingPageProps) {
         <Results />
         <Highlights />
         <Process />
-        <Treatments />
         <About />
+        <Location />
+        <Treatments />
         <Faq />
         <Cta />
-        <Location />
       </main>
       <Footer brand={SITE.brand} city={SITE.city} />
       <SocialFloats />

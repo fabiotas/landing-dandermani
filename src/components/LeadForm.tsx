@@ -1,13 +1,14 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
-import { whatsappUrl } from '../content'
+import { obrigadoUrl, whatsappUrl, whatsappViaObrigado } from '../content'
 import { useTracking } from './TrackingProvider'
 import styles from './LeadForm.module.css'
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
-const destination = whatsappUrl()
+const whatsappDestination = whatsappUrl()
+const viaObrigado = obrigadoUrl(whatsappDestination)
 
 function formatTelefone(value: string): string {
   const digits = value.replace(/\D/g, '').slice(0, 11)
@@ -67,14 +68,9 @@ export function LeadForm() {
         return
       }
 
-      // Só segue para o WhatsApp depois que o lead foi persistido.
-      //
-      // Ponto de inserção da conversão do Google Ads / GA4: dispare o evento
-      // `lead_submitted` exatamente aqui, e não no clique do botão, para que a
-      // conversão só conte quando o backend confirmou a gravação. O script da
-      // tag entra em src/app/layout.tsx.
+      // Conversão Google Ads / GA4: dispara em /obrigado após o lead persistido.
       setStatus('success')
-      window.location.href = destination
+      window.location.href = viaObrigado
     } catch {
       setErrorMessage(
         'Falha de conexão. Verifique sua internet e tente novamente.',
@@ -89,7 +85,7 @@ export function LeadForm() {
         <p className={styles.successText}>
           Recebemos seu contato. Abrindo o WhatsApp…
         </p>
-        <a className={styles.button} href={destination}>
+        <a className={styles.button} href={viaObrigado}>
           Continuar no WhatsApp
         </a>
       </div>
@@ -194,8 +190,7 @@ export function LeadForm() {
         {status === 'sending' ? 'Enviando…' : 'Agendar minha avaliação'}
       </button>
 
-      {/* Saída para quem desistir do formulário: vai ao WhatsApp sem enviar. */}
-      <a className={styles.escape} href={destination}>
+      <a className={styles.escape} href={whatsappViaObrigado()}>
         Prefiro falar direto no WhatsApp
       </a>
 

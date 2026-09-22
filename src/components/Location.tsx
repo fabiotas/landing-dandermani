@@ -13,6 +13,10 @@ export function Location() {
         <h2 id="location-title" className={styles.title}>
           Onde atender
         </h2>
+        <p className={styles.lead}>
+          Localizado em uma das melhores regiões e de fácil acesso de Ribeirão
+          Preto.
+        </p>
         <p className={styles.city}>{SITE.city}</p>
         <p className={styles.address}>{SITE.address}</p>
         <a

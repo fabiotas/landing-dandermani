@@ -1,4 +1,4 @@
-import { SITE, whatsappUrl } from '../content'
+import { SITE, whatsappViaObrigado } from '../content'
 import { Logo } from './Logo'
 import styles from './Header.module.css'
 
@@ -7,7 +7,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.top}>
         <p className={styles.location}>{SITE.city}</p>
-        <a className={styles.topLink} href={whatsappUrl()}>
+        <a className={styles.topLink} href={whatsappViaObrigado()}>
           WhatsApp
         </a>
       </div>
