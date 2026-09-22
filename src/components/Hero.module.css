@@ -65,15 +65,16 @@
 }
 
 .logo {
-  width: min(380px, 88%);
-  margin-bottom: 1.5rem;
-  animation: rise 1s var(--ease-out) 0.1s both;
-  filter: drop-shadow(0 8px 24px rgba(243, 237, 225, 0.55));
+  display: none;
 }
 
-@media (max-width: 899px) {
+@media (min-width: 900px) {
   .logo {
-    display: none;
+    display: block;
+    width: min(380px, 88%);
+    margin-bottom: 1.5rem;
+    animation: rise 1s var(--ease-out) 0.1s both;
+    filter: drop-shadow(0 8px 24px rgba(243, 237, 225, 0.55));
   }
 }
 
