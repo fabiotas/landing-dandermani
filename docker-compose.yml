@@ -32,6 +32,10 @@ services:
     environment:
       # Só é seguro porque o nginx sobrescreve X-Forwarded-For.
       - TRUST_PROXY=true
+      # Docker define HOSTNAME=id do container; o Next passa a escutar só nele
+      # e a porta publicada no host recebe empty reply. Forçar 0.0.0.0.
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped

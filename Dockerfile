@@ -23,6 +23,8 @@ FROM node:20-alpine AS production
 WORKDIR /app
 RUN apk add --no-cache openssl
 ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/.next/static ./.next/static
