@@ -13,14 +13,13 @@ services:
     env_file: .env
     environment:
       - WATCHPACK_POLLING=true
-    # Permite alcançar o banco através do host (túnel SSH em dev).
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  # Produção atrás do nginx do sistema.
-  # Publica só em 127.0.0.1, então não é acessível pela internet:
-  # todo acesso externo passa obrigatoriamente pelo nginx, que termina o TLS.
+  # Produção atrás do nginx do sistema (127.0.0.1:3002).
   # Uso: docker compose --profile prod up -d --build web-prod
+  # HOSTNAME=0.0.0.0: o Next precisa escutar em todas as interfaces
+  # para a porta publicada no host funcionar.
   web-prod:
     profiles: ["prod"]
     build:
@@ -30,10 +29,7 @@ services:
       - "127.0.0.1:3002:3000"
     env_file: .env
     environment:
-      # Só é seguro porque o nginx sobrescreve X-Forwarded-For.
       - TRUST_PROXY=true
-      # Docker define HOSTNAME=id do container; o Next passa a escutar só nele
-      # e a porta publicada no host recebe empty reply. Forçar 0.0.0.0.
       - HOSTNAME=0.0.0.0
       - PORT=3000
     extra_hosts:
