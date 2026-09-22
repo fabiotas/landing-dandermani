@@ -1,6 +1,5 @@
 import { Header } from './Header'
 import { Hero } from './Hero'
-import { Highlights } from './Highlights'
 import { Process } from './Process'
 import { Treatments } from './Treatments'
 import { Results } from './Results'
@@ -24,7 +23,6 @@ export function LandingPage({ treatment }: LandingPageProps) {
       <main>
         <Hero supporting={treatment?.supporting} />
         <Results />
-        <Highlights />
         <Process />
         <About />
         <Location />
