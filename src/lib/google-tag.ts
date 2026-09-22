@@ -1,6 +1,6 @@
 /**
- * Preencha quando tiver o snippet do Google Ads / GA4.
- * Enquanto vazio, o fluxo /obrigado funciona sem carregar gtag.
+ * Conversão de lead via dataLayer (GTM).
+ * Rótulos AW/G- opcionais se também usar gtag direto.
  */
 export const GOOGLE_TAG_ID = ''
 /** Ex.: AW-XXXXXXXXX/YYYYYYYYYYY — rótulo da conversão no Google Ads. */
@@ -8,14 +8,19 @@ export const GOOGLE_CONVERSION_SEND_TO = ''
 
 declare global {
   interface Window {
-    dataLayer?: unknown[]
+    dataLayer?: Record<string, unknown>[]
     gtag?: (...args: unknown[]) => void
   }
 }
 
-/** Dispara conversão de lead; no-op se IDs ou gtag ainda não existirem. */
+/** Dispara conversão de lead no dataLayer (e gtag, se existir). */
 export function fireLeadConversion(): void {
-  if (!GOOGLE_TAG_ID || typeof window === 'undefined') return
+  if (typeof window === 'undefined') return
+
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push({ event: 'lead_submitted' })
+
+  if (!GOOGLE_TAG_ID) return
 
   const attempt = (triesLeft: number) => {
     if (typeof window.gtag === 'function') {

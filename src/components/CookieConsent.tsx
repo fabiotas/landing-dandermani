@@ -29,9 +29,9 @@ export function CookieConsent() {
     <div className={styles.bar} role="dialog" aria-labelledby="cookie-consent-title">
       <div className={styles.inner}>
         <p id="cookie-consent-title" className={styles.text}>
-          Usamos o Microsoft Clarity para entender como a página é usada — sem
-          gravar o que você digita nos formulários. Aceita cookies de
-          analytics?{' '}
+          Usamos cookies de analytics (Microsoft Clarity e Google Tag Manager)
+          para entender como a página é usada — sem gravar o que você digita nos
+          formulários. Aceita cookies de analytics?{' '}
           <Link className={styles.link} href="/privacidade">
             Política de privacidade
           </Link>

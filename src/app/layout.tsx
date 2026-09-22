@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 import { SITE } from '../content'
 import { ClarityAnalytics } from '../components/ClarityAnalytics'
 import { CookieConsent } from '../components/CookieConsent'
-import { GoogleAnalytics } from '../components/GoogleAnalytics'
+import { GoogleTagManager } from '../components/GoogleTagManager'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
 
@@ -38,11 +38,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="pt-BR">
       <body>
         {/*
-          Google Ads / gtag: carregado em GoogleAnalytics após consentimento,
-          quando GOOGLE_TAG_ID estiver preenchido em src/lib/google-tag.ts.
-          Conversão lead_submitted dispara em /obrigado.
-          O Microsoft Clarity só carrega após consentimento (CookieConsent).
+          GTM (GTM-PCW9ZTZL) e Clarity só após consentimento (CookieConsent).
+          Conversão lead_submitted: dataLayer em /obrigado.
         */}
+        <GoogleTagManager />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
@@ -51,7 +50,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
         <TrackingProvider>{children}</TrackingProvider>
         <ClarityAnalytics />
-        <GoogleAnalytics />
         <CookieConsent />
       </body>
     </html>
