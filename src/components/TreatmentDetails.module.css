@@ -1,0 +1,8 @@
+.section {
+  padding: clamp(2.5rem, 6vw, 5rem) max(1.25rem, calc((100% - 960px) / 2));
+  background: var(--paper-white);
+}
+.section nav { color: var(--muted); font-size: .9rem; margin-bottom: 2rem; }
+.section h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.25; margin: 2rem 0 1rem; }
+.section p { color: var(--ink-soft); line-height: 1.8; max-width: 75ch; }
+.section a { text-underline-offset: .25em; }

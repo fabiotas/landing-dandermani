@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import { SocialFloats } from '../SocialFloats'
 import styles from './HiproHero.module.css'
@@ -12,11 +13,11 @@ export function HiproHero({ content = HIPRO }: HiproHeroProps) {
   return (
     <section id="topo" className={styles.hero} aria-label={content.eventName}>
       <div className={styles.media} aria-hidden="true">
-        <img
+        <Image
           className={styles.photo}
           src="/hipro-equipamento.png"
           alt=""
-          width={1200}
+          sizes="(max-width: 768px) 100vw, 50vw" priority width={1200}
           height={1600}
         />
         <div className={styles.veil} />
@@ -24,11 +25,11 @@ export function HiproHero({ content = HIPRO }: HiproHeroProps) {
       </div>
 
       <div className={styles.content}>
-        <p className={styles.date}>
+        {content.eventDate && <p className={styles.date}>
           <span className={styles.dateDay}>{day}</span>
           <span className={styles.dateSep}>/</span>
           <span className={styles.dateMonth}>{month}</span>
-        </p>
+        </p>}
 
         {content.heroVariant === 'hipro-day' ? (
           <h1 className={styles.title}>

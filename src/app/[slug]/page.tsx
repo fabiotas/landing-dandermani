@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { LandingPage } from '../../components/LandingPage'
 import { SITE, TREATMENTS } from '../../content'
 
-// Cada entrada entrega a mesma landing com o texto de abertura próprio.
+// Cada tratamento tem conteúdo próprio e mantém a URL das campanhas.
 // O slug é a URL de campanha e é o que fica gravado em landing_page no lead.
 export function generateStaticParams() {
   return TREATMENTS.map((treatment) => ({ slug: treatment.slug }))
@@ -24,14 +24,17 @@ export async function generateMetadata({
   const treatment = findTreatment(slug)
   if (!treatment) return {}
 
-  const title = `${treatment.headline} | ${SITE.brand}`
+  const title = `${treatment.name} em Ribeirão Preto | ${SITE.brand}`
+  const description = `${treatment.name} em Ribeirão Preto com avaliação individualizada por enfermeira especialista em estética. Conheça a proposta e agende sua avaliação.`
 
   return {
     title,
-    description: treatment.supporting,
+    alternates: { canonical: `/${slug}` },
+    description,
     openGraph: {
+      url: `/${slug}`,
       title,
-      description: treatment.supporting,
+      description,
     },
   }
 }

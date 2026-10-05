@@ -80,10 +80,11 @@ export const HIPRO_EXAMPLE_PHOTOS: HiproExamplePhoto[] = [
 
 export const HIPRO: HiproPageContent = {
   slug: '/hipro-ribeirao',
-  heroVariant: 'hipro-day',
-  eventName: 'Dia do HiPRO',
-  eventDate: '03/10',
-  eventBadge: 'Condição especial Semana do Cliente de 13 a 19 de setembro',
+  heroVariant: 'natural',
+  eventName: 'HiPRO em Ribeirão Preto',
+  eventSubtitle: 'Ultrassom focado para firmeza e contorno',
+  eventDate: '',
+  eventBadge: '',
   tagline: 'Tecnologia que realça o seu melhor',
   locationLine: 'em Ribeirão Preto',
   city: 'Ribeirão Preto — São Paulo',
@@ -156,8 +157,8 @@ export const HIPRO: HiproPageContent = {
     'Experiência em estética avançada',
     'Atendimento humanizado',
   ],
-  formTitle: 'Quero saber mais sobre o Dia do HiPRO',
-  formConsentTopic: 'o Dia do HiPRO',
+  formTitle: 'Quero saber mais sobre o HiPRO',
+  formConsentTopic: 'o HiPRO',
   formQuestionLabel: 'Você já realizou algum procedimento estético?',
   formInterests: [
     'Nunca fiz',
@@ -189,7 +190,7 @@ export const HIPRO: HiproPageContent = {
   ],
   locationLead:
     'Atendimento em Ribeirão Preto, com acolhimento e condução técnica para quem busca conhecer o HIPRO com segurança e naturalidade.',
-  finalEyebrow: 'Condição especial Semana do Cliente de 13 a 19 de setembro',
+  finalEyebrow: 'Avaliação individualizada em Ribeirão Preto',
   finalTitle: 'Seu momento de conhecer o HIPRO.',
   finalPoints: [
     'Beleza com propósito',
@@ -197,10 +198,10 @@ export const HIPRO: HiproPageContent = {
     'A sua melhor versão',
   ],
   whatsappMessage:
-    'Oie! Gostaria de saber mais sobre o Dia do HiPRO e agendar uma avaliação.',
-  metaTitle: `Dia do HiPRO em Ribeirão Preto | ${SITE.brand}`,
+    'Oie! Gostaria de saber mais sobre o HiPRO e agendar uma avaliação.',
+  metaTitle: `HiPRO em Ribeirão Preto | ${SITE.brand}`,
   metaDescription:
-    'Conheça o Dia do HiPRO em Ribeirão Preto: ultrassom focado para firmeza e contorno, com avaliação individualizada por enfermeira especialista em estética.',
+    'Conheça o HiPRO em Ribeirão Preto: ultrassom focado para firmeza e contorno, com avaliação individualizada por enfermeira especialista em estética.',
 }
 
 /** Landing de Ads: frase-chave “rejuvenescimento” + Ribeirão Preto. */
@@ -208,14 +209,23 @@ export const REJUVENESCIMENTO: HiproPageContent = {
   ...HIPRO,
   slug: '/rejuvenescimento-natural-ribeirao',
   heroVariant: 'natural',
-  eventName: 'Rejuvenescimento',
+  eventName: 'Rejuvenescimento natural em Ribeirão Preto',
   eventSubtitle: 'Efeito lifting sem cirurgia',
   eventBadge: '',
-  tagline: 'A tecnologia que ganhou destaque entre os famosos',
+  tagline: 'Cuidado individualizado para firmeza e contorno',
   locationLine: 'Agora disponível em Ribeirão Preto',
   formTitle: 'Quero saber mais sobre rejuvenescimento natural',
   formConsentTopic: 'rejuvenescimento natural',
   faqTitle: 'Perguntas sobre rejuvenescimento natural',
+  whatTitle: 'Como planejar o rejuvenescimento natural?',
+  whatLead: 'A avaliação de rejuvenescimento natural começa pelas mudanças que você percebe no rosto e pelos traços que deseja preservar. Em Ribeirão Preto, a consulta com a enfermeira especialista considera suas queixas, histórico e expectativas. O HiPRO é uma das tecnologias apresentadas para avaliação de firmeza e contorno; a indicação depende de cada caso.',
+  protocolBody: 'Naturalidade é um objetivo discutido na consulta, considerando as características do seu rosto. Antes de propor um protocolo, a profissional explica as possibilidades, limitações e orientações de cuidado. Você pode trazer dúvidas sobre contorno facial, pescoço e outras regiões que deseja avaliar.',
+  faq: [
+    { question: 'Por onde começar o rejuvenescimento facial?', answer: 'Comece pela avaliação das suas queixas e expectativas. A consulta permite discutir o que deseja preservar, quais mudanças busca e quais condutas podem ser consideradas para o seu caso.' },
+    { question: 'Rejuvenescimento natural significa realizar vários procedimentos?', answer: 'Não existe um pacote obrigatório de procedimentos. A proposta é individualizada e a indicação só acontece após a avaliação.' },
+    { question: 'Qual é a relação entre HiPRO e rejuvenescimento?', answer: 'O HiPRO utiliza ultrassom focado e é apresentado neste site para avaliação de firmeza e contorno. A profissional esclarece se a tecnologia é adequada às suas queixas e quais são seus limites.' },
+    { question: 'Quem realiza a avaliação em Ribeirão Preto?', answer: `O atendimento é conduzido por ${PROFESSIONAL.name}, ${PROFESSIONAL.title}, ${PROFESSIONAL.registration}, no Metropolitan Business Center, no Jardim América.` },
+  ],
   locationLead:
     'Atendimento em Ribeirão Preto para quem busca rejuvenescimento natural com firmeza, contorno e condução técnica individualizada.',
   finalTitle: 'Seu momento de cuidar do rejuvenescimento natural.',

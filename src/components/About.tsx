@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { PROFESSIONAL, SITE } from '../content'
 import styles from './About.module.css'
 
@@ -6,10 +7,10 @@ export function About() {
     <section id="sobre" className={styles.section}>
       <div className={styles.portrait}>
         <div className={styles.portraitFrame}>
-          <img
+          <Image
             src="/sobre-profissional.jpg"
             alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}`}
-            width={800}
+            sizes="(max-width: 768px) 100vw, 50vw" width={800}
             height={1000}
           />
         </div>

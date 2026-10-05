@@ -6,6 +6,7 @@ import { CookieConsent } from '../components/CookieConsent'
 import { GoogleTagManager } from '../components/GoogleTagManager'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
+import { BusinessStructuredData } from '../components/BusinessStructuredData'
 
 // Constante em vez de variável de ambiente: NEXT_PUBLIC_* é embutida no build,
 // e o .env do compose só existe em tempo de execução.
@@ -36,18 +37,21 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
-      <body>
-        {/*
-          GTM (GTM-PCW9ZTZL) e Clarity só após consentimento (CookieConsent).
-          Conversão lead_submitted: dataLayer em /obrigado.
-        */}
-        <GoogleTagManager />
+      <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
+      </head>
+      <body>
+        <BusinessStructuredData />
+        {/*
+          GTM (GTM-PCW9ZTZL) e Clarity só após consentimento (CookieConsent).
+          Conversão lead_submitted: dataLayer em /obrigado.
+        */}
+        <GoogleTagManager />
         <TrackingProvider>{children}</TrackingProvider>
         <ClarityAnalytics />
         <CookieConsent />

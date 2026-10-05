@@ -8,6 +8,14 @@
   background: var(--surface);
 }
 
+.footer nav {
+  max-width: 60rem;
+  text-align: center;
+  font-size: .85rem;
+  line-height: 2;
+}
+.footer nav a { text-decoration: underline; text-underline-offset: .2em; }
+
 .logo {
   width: min(220px, 70%);
   opacity: 0.9;

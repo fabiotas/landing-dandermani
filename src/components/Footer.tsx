@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PROFESSIONAL, SITE } from '../content'
+import { PROFESSIONAL, SITE, TREATMENTS } from '../content'
 import { Logo } from './Logo'
 import styles from './Footer.module.css'
 
@@ -33,6 +33,14 @@ export function Footer({ brand, city }: FooterProps) {
         © {year} {brand} · {city}
       </p>
 
+      <nav aria-label="Serviços de estética">
+        <Link href="/">Estética em Ribeirão Preto</Link>{' · '}
+        {TREATMENTS.map((treatment) => (
+          <span key={treatment.slug}><Link href={`/${treatment.slug}`}>{treatment.name}</Link>{' · '}</span>
+        ))}
+        <Link href="/hipro-ribeirao">HiPRO</Link>{' · '}
+        <Link href="/rejuvenescimento-natural-ribeirao">Rejuvenescimento natural</Link>
+      </nav>
       <Link className={styles.legal} href="/privacidade">
         Política de privacidade
       </Link>

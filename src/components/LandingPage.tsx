@@ -1,4 +1,5 @@
 import { Header } from './Header'
+import { TreatmentDetails } from './TreatmentDetails'
 import { Hero } from './Hero'
 import { Process } from './Process'
 import { Treatments } from './Treatments'
@@ -21,8 +22,9 @@ export function LandingPage({ treatment }: LandingPageProps) {
     <>
       <Header />
       <main>
-        <Hero supporting={treatment?.supporting} />
-        <Results />
+        <Hero supporting={treatment?.supporting} headline={treatment ? `${treatment.name} em Ribeirão Preto` : undefined} />
+        {treatment && <TreatmentDetails treatment={treatment} />}
+        {!treatment && <Results />}
         <Process />
         <About />
         <Location />

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { PROFESSIONAL } from '../../content'
 import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import { HiproLeadForm } from './HiproLeadForm'
@@ -11,10 +12,10 @@ export function HiproExpertise({ content = HIPRO }: HiproExpertiseProps) {
   return (
     <section id="sobre" className={styles.section} aria-labelledby="hipro-expertise-title">
       <div className={styles.portrait}>
-        <img
+        <Image
           src="/hipro-profissional.png"
           alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}`}
-          width={800}
+          sizes="(max-width: 768px) 100vw, 50vw" width={800}
           height={1000}
         />
         <div className={styles.portraitCaption}>

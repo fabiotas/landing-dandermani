@@ -3,9 +3,11 @@ import { REJUVENESCIMENTO } from '../../hipro-content'
 import { HiproPage } from '../../components/hipro/HiproPage'
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/rejuvenescimento-natural-ribeirao" },
   title: REJUVENESCIMENTO.metaTitle,
   description: REJUVENESCIMENTO.metaDescription,
   openGraph: {
+    url: "/rejuvenescimento-natural-ribeirao",
     title: REJUVENESCIMENTO.metaTitle,
     description: REJUVENESCIMENTO.metaDescription,
     images: [

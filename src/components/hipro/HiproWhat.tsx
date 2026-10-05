@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { HIPRO, type HiproPageContent } from '../../hipro-content'
 import styles from './HiproWhat.module.css'
 
@@ -9,10 +10,10 @@ export function HiproWhat({ content = HIPRO }: HiproWhatProps) {
   return (
     <section id="o-que-e" className={styles.section} aria-labelledby="hipro-what-title">
       <div className={styles.media}>
-        <img
+        <Image
           src="/hipro-tecnologias.png"
           alt="Até onde cada tecnologia atua: comparação entre laser, luz intensa pulsada, radiofrequência e HIFU nas camadas da pele"
-          width={1200}
+          sizes="(max-width: 768px) 100vw, 50vw" width={1200}
           height={900}
         />
       </div>

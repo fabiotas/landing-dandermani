@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './HiproCarousel.module.css'
 
@@ -66,10 +68,10 @@ export function HiproCarousel({ photos }: HiproCarouselProps) {
         >
           {photos.map((photo) => (
             <figure key={photo.src} className={styles.slide}>
-              <img
+              <Image
                 src={photo.src}
                 alt={photo.alt}
-                width={700}
+                sizes="(max-width: 768px) 90vw, 700px" width={700}
                 height={900}
                 draggable={false}
               />

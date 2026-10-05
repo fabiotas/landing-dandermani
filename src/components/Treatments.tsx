@@ -33,8 +33,8 @@ export function Treatments() {
             </span>
             <h3>{item.name}</h3>
             <p>{item.description}</p>
-            <a className={styles.link} href="#agendamento">
-              Agendar minha avaliação
+            <a className={styles.link} href={`/${item.slug}`}>
+              Conheça {item.name}
             </a>
           </li>
         ))}
