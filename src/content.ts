@@ -195,7 +195,7 @@ export const LEGAL = {
   controller: PROFESSIONAL.name,
   email: 'elendanti@hotmail.com',
   retention: '24 meses',
-  updatedAt: '21 de setembro de 2026',
+  updatedAt: '9 de outubro de 2026',
 }
 
 export function whatsappUrl(message = SITE.whatsappMessage) {

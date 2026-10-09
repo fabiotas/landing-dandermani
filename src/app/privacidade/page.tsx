@@ -101,6 +101,15 @@ export default function Privacidade() {
 
         <h2>Cookies e analytics</h2>
         <p>
+          Com consentimento para análise e publicidade, o Pixel da Meta
+          (identificador 879302091839513) registra visualizações de página
+          para mensurar campanhas. A Meta pode processar a URL visitada,
+          identificadores de cookies e dados técnicos do navegador e da
+          conexão, conforme sua política de privacidade. Não enviamos nome,
+          telefone ou respostas dos formulários ao Pixel. O script não é
+          carregado antes da aceitação ou quando você recusa os cookies.
+        </p>
+        <p>
           Com o seu consentimento, usamos o Microsoft Clarity para medir uso da
           página (mapas de calor e gravações de sessão). O script só é carregado
           depois que você aceita o aviso de cookies. Recusar não impede o uso do

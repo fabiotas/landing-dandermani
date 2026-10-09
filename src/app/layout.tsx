@@ -4,6 +4,7 @@ import { SITE } from '../content'
 import { ClarityAnalytics } from '../components/ClarityAnalytics'
 import { CookieConsent } from '../components/CookieConsent'
 import { GoogleTagManager } from '../components/GoogleTagManager'
+import { MetaPixel } from '../components/MetaPixel'
 import { TrackingProvider } from '../components/TrackingProvider'
 import './globals.css'
 import { BusinessStructuredData } from '../components/BusinessStructuredData'
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           Conversão lead_submitted: dataLayer em /obrigado.
         */}
         <GoogleTagManager />
+        <MetaPixel />
         <TrackingProvider>{children}</TrackingProvider>
         <ClarityAnalytics />
         <CookieConsent />

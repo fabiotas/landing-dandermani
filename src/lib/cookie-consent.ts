@@ -1,4 +1,5 @@
-export const COOKIE_CONSENT_KEY = 'cookie_consent'
+// Nova escolha de consentimento ao incluir publicidade da Meta.
+export const COOKIE_CONSENT_KEY = 'cookie_consent_v2'
 export const COOKIE_CONSENT_EVENT = 'cookie-consent-change'
 
 export type CookieConsentChoice = 'granted' | 'denied'
