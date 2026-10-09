@@ -2,13 +2,13 @@ import Image from 'next/image'
 import { PROFESSIONAL, SITE } from '../content'
 import styles from './About.module.css'
 
-export function About() {
+export function About({ photo = '/sobre-profissional.jpg' }: { photo?: string } = {}) {
   return (
     <section id="sobre" className={styles.section}>
       <div className={styles.portrait}>
         <div className={styles.portraitFrame}>
           <Image
-            src="/sobre-profissional.jpg"
+            src={photo}
             alt={`${PROFESSIONAL.name}, ${PROFESSIONAL.title}`}
             sizes="(max-width: 768px) 100vw, 50vw" width={800}
             height={1000}

@@ -38,6 +38,7 @@ export function Footer({ brand, city }: FooterProps) {
         {TREATMENTS.map((treatment) => (
           <span key={treatment.slug}><Link href={`/${treatment.slug}`}>{treatment.name}</Link>{' · '}</span>
         ))}
+        <Link href="/eliminando-linhas-expressao">Remoção de rugas</Link>{' · '}
         <Link href="/hipro-ribeirao">HiPRO</Link>{' · '}
         <Link href="/rejuvenescimento-natural-ribeirao">Rejuvenescimento natural</Link>
       </nav>

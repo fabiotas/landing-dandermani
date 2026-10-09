@@ -1,0 +1,9 @@
+.hint { display: none; }
+@media (max-width: 760px) {
+  .hint { display: flex; flex-direction: column; align-items: center; gap: .3rem; position: absolute; top: 45%; left: 50%; z-index: 2; transform: translate(-50%, -50%); padding: .8rem 1.25rem; background: rgba(17, 17, 17, .85); border: 1px solid #d6b777; color: #f1dfbd; font-size: .8rem; border-radius: 4px; pointer-events: none; opacity: 0; }
+  .visible { animation: reveal 6s ease both; }
+  .visible .gesture { animation: swipe 1.8s ease-in-out 3; }
+}
+@keyframes swipe { 0%, 100% { transform: translateX(14px) rotate(8deg); } 60% { transform: translateX(-18px) rotate(-8deg); } }
+@keyframes reveal { 0% { opacity: 0; } 8%, 85% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hint { display: none; } }

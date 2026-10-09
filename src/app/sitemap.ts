@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { SITE, TREATMENTS } from '../content'
 
-const CAMPAIGN_PATHS = ['/hipro-ribeirao', '/rejuvenescimento-natural-ribeirao']
+const CAMPAIGN_PATHS = ['/hipro-ribeirao', '/rejuvenescimento-natural-ribeirao', '/eliminando-linhas-expressao']
 
 export default function sitemap(): MetadataRoute.Sitemap {
 

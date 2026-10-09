@@ -7,11 +7,14 @@ import styles from './Hero.module.css'
 type HeroProps = {
   supporting?: string
   headline?: string
+  showPromo?: boolean
+  highlightWord?: string
+  mobileSeparatePortrait?: boolean
 }
 
-export function Hero({ supporting = SITE.supporting, headline = 'Estética avançada em Ribeirão Preto' }: HeroProps) {
+export function Hero({ supporting = SITE.supporting, headline = 'Estética avançada em Ribeirão Preto', showPromo = true, highlightWord, mobileSeparatePortrait = false }: HeroProps) {
   return (
-    <section id="topo" className={styles.hero} aria-label="Apresentação">
+    <section id="topo" className={`${styles.hero} ${mobileSeparatePortrait ? styles.separatePortrait : ''}`} aria-label="Apresentação">
       <div className={styles.backdrop} aria-hidden="true" />
 
       <div className={styles.portrait} aria-hidden="true">
@@ -21,11 +24,11 @@ export function Hero({ supporting = SITE.supporting, headline = 'Estética avan�
       <div className={styles.veil} aria-hidden="true" />
       <div className={styles.grain} aria-hidden="true" />
 
-      <HiproPromoSeal />
+      {showPromo && <HiproPromoSeal />}
 
       <div className={styles.content}>
         <Logo className={styles.logo} />
-        <h1 className={styles.headline}>{headline}</h1>
+        <h1 className={styles.headline}>{highlightWord && headline.startsWith(highlightWord) ? <><span className={styles.highlightWord}>{highlightWord}</span>{headline.slice(highlightWord.length)}</> : headline}</h1>
         <p className={styles.tagline}>{SITE.tagline}</p>
         <p className={styles.support}>{supporting}</p>
         <div className={styles.actions}>

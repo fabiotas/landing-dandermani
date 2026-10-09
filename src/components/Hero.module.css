@@ -78,6 +78,21 @@
   }
 }
 
+.highlightWord {
+  display: inline-block;
+  padding: .08em .22em .13em;
+  margin-bottom: .12em;
+  background: #111;
+  color: #f1dfbd;
+  border: 2px solid #d6b777;
+  box-shadow: inset 0 0 0 3px #111, inset 0 0 0 4px rgba(214, 183, 119, .45);
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -.015em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .headline {
   margin: 0;
   max-width: 18ch;
@@ -159,6 +174,20 @@
 .secondary:hover {
   border-color: var(--ink);
   background: rgba(255, 248, 235, 0.85);
+}
+
+@media (max-width: 899px) {
+  .separatePortrait { min-height: auto; display: flex; flex-direction: column; background: var(--paper-white); }
+  .separatePortrait .backdrop, .separatePortrait .veil, .separatePortrait .grain { display: none; }
+  .separatePortrait .content { order: 0; width: 100%; padding: calc(var(--chrome-h) + 1.5rem) 1.25rem .75rem; }
+  .separatePortrait .headline { max-width: 22ch; font-size: clamp(2.1rem, 8.2vw, 3rem); text-shadow: none; }
+  .separatePortrait .highlightWord { display: table; margin-bottom: .25em; }
+  .separatePortrait .support { font-weight: 400; }
+  .separatePortrait .support, .separatePortrait .actions { display: none; }
+  .separatePortrait .actions { flex-direction: column; gap: .75rem; margin-top: 1.5rem; }
+  .separatePortrait .primary, .separatePortrait .secondary { width: 100%; min-height: 52px; }
+  .separatePortrait .portrait { display: none; }
+  .separatePortrait .portraitImg { height: auto; max-height: 540px; object-fit: contain; object-position: center; }
 }
 
 /* Layout lado a lado: texto à esquerda, retrato sangrando à direita */
